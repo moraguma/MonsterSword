@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bmrsgb2jab1xy"]
+
+[ext_resource type="FontFile" uid="uid://daab7vsu8k3vn" path="res://resources/fonts/Pixeled.ttf" id="1_fu6xf"]
+
+[resource]
+default_font = ExtResource("1_fu6xf")
+default_font_size = 6
