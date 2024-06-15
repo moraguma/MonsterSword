@@ -1,7 +1,22 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bmrsgb2jab1xy"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bmrsgb2jab1xy"]
 
 [ext_resource type="FontFile" uid="uid://daab7vsu8k3vn" path="res://resources/fonts/Pixeled.ttf" id="1_fu6xf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vphti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kocxn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1pku6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o8bbe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvne8"]
 
 [resource]
 default_font = ExtResource("1_fu6xf")
 default_font_size = 6
+Button/styles/disabled = SubResource("StyleBoxEmpty_vphti")
+Button/styles/focus = SubResource("StyleBoxEmpty_kocxn")
+Button/styles/hover = SubResource("StyleBoxEmpty_1pku6")
+Button/styles/normal = SubResource("StyleBoxEmpty_o8bbe")
+Button/styles/pressed = SubResource("StyleBoxEmpty_wvne8")

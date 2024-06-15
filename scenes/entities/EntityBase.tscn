@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcw5r1it5fj7o"]
+
+[ext_resource type="Script" path="res://scenes/scripts/Entity.gd" id="1_j23pg"]
+[ext_resource type="Texture2D" uid="uid://cqcipj58oriw1" path="res://resources/sprites/enemies/player11.png" id="2_f8e5w"]
+[ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="3_mnmec"]
+[ext_resource type="Texture2D" uid="uid://quxybynnyglp" path="res://icon.svg" id="4_hk3c5"]
+
+[node name="Entity" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("2_f8e5w")
+script = ExtResource("1_j23pg")
+life = 10
+max_life = 10
+
+[node name="StatsHolder" type="Node2D" parent="."]
+
+[node name="HP" type="Label" parent="StatsHolder"]
+texture_filter = 1
+offset_left = -64.0
+offset_top = -24.0
+offset_right = 64.0
+offset_bottom = 40.0
+theme = ExtResource("3_mnmec")
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ATK" type="Label" parent="StatsHolder"]
+texture_filter = 1
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme = ExtResource("3_mnmec")
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -82.5
+offset_right = -2.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_mnmec")
+flat = true
+
+[node name="Indicator" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_hk3c5")
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

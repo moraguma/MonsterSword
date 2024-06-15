@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwi4sjntxpbf1"]
+
+[ext_resource type="PackedScene" uid="uid://cnu0dbem7j4j5" path="res://scenes/Card.tscn" id="1_4anxl"]
+
+[node name="Card" instance=ExtResource("1_4anxl")]
+
+[connection signal="mouse_entered" from="Button" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="pressed"]

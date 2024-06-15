@@ -1,37 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://ggktn86dsi8o"]
+[gd_scene load_steps=2 format=3 uid="uid://ggktn86dsi8o"]
 
-[ext_resource type="Script" path="res://scenes/scripts/Entity.gd" id="1_lhp05"]
-[ext_resource type="Texture2D" uid="uid://quxybynnyglp" path="res://icon.svg" id="2_1hlvy"]
-[ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="3_hlu4m"]
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_cm87o"]
 
-[node name="Player" type="Node2D"]
-texture_filter = 1
-script = ExtResource("1_lhp05")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_1hlvy")
-
-[node name="HP" type="Label" parent="."]
-texture_filter = 1
-offset_left = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-theme = ExtResource("3_hlu4m")
-text = "3"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="ATK" type="Label" parent="."]
-texture_filter = 1
-offset_left = -64.0
-offset_top = 24.0
-offset_right = 64.0
-offset_bottom = 88.0
-theme = ExtResource("3_hlu4m")
-text = "3"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="Entity" instance=ExtResource("1_cm87o")]
