@@ -8,3 +8,5 @@ texture = ExtResource("2_8wrn0")
 life = 1
 max_life = 1
 attack = 1
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

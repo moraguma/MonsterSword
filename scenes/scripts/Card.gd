@@ -14,12 +14,12 @@ var selected = false
 @onready var battle: Battle = get_parent().get_parent()
 
 
-func effect(entity: Entity):
+func play(entity: Entity):
 	pass
 
 
 func _process(delta):
-	offset = lerp(offset, SELECT_OFFSET if hovered or selected else BASE_OFFSET, LERP_WEIGHT)
+	offset = lerp(offset, SELECT_OFFSET if (hovered or selected) and battle.can_interact else BASE_OFFSET, LERP_WEIGHT)
 
 
 func mouse_entered():
@@ -32,8 +32,8 @@ func mouse_exited():
 
 func pressed():
 	if not selected:
-		selected = true
-		battle.select_card(self)
+		if battle.select_card(self):
+			selected = true
 	else:
 		selected = false
 		battle.desselect_card(self)

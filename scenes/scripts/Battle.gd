@@ -6,6 +6,8 @@ signal played
 
 
 const PLAYER_SCENE = preload("res://scenes/Player.tscn")
+const SMALL_SLEEP_TIME = 0.2
+const DEFAULT_SLEEP_TIME = 0.6
 
 
 const MAX_CARDS = 5
@@ -21,6 +23,7 @@ var deck: Array[Card] = []
 var hand: Array[Card] = []
 var allies: Array[Entity] = []
 var enemies: Array[Entity] = []
+var turn_order: Array[Entity] = []
 
 var player: Entity
 
@@ -36,6 +39,13 @@ var aim_card_visual_count = 0
 @onready var card_container: XSort = $Cards
 
 @onready var sleep_timer: Timer = $SleepTimer
+
+var can_interact = false
+var can_play = false
+var can_discard = false
+@onready var missing_card_error: RichTextLabel = $Discard/MissingCard
+@onready var select_card_error: RichTextLabel = $Play/SelectCard
+@onready var select_entity_error: RichTextLabel = $Play/SelectEntity
 
 
 func fisher_yates_shuffle(l):
@@ -71,6 +81,45 @@ func _ready():
 	
 	for i in range(MAX_CARDS):
 		pull_from_deck()
+	
+	update_play()
+	update_discard()
+	while len(enemies) != 0 and player in allies:
+		await process_intents()
+		
+		can_interact = true
+		await played
+		
+		for entity in turn_order:
+			if entity != null:
+				await entity.turn()
+				await sleep()
+	
+	if not player in allies:
+		print("GAME OVER")
+	else:
+		print("VICTORY")
+
+
+func process_intents():
+	turn_order = []
+	var order = 1
+	if player.process_intent():
+		turn_order.append(player)
+		player.set_order(order)
+		order += 1
+		await sleep(SMALL_SLEEP_TIME)
+	
+	for container in [ally_container, enemy_container]:
+		for entity in container.get_children():
+			if entity != player:
+				if entity.process_intent():
+					turn_order.append(entity)
+					entity.set_order(order)
+					order += 1
+					await sleep(SMALL_SLEEP_TIME)
+	
+	return turn_order
 
 
 func _process(delta):
@@ -110,24 +159,29 @@ func add_card(card: Card):
 func discard_card(card: Card):
 	hand.erase(card)
 	card.queue_free() # TODO: Add proper animation
+	
+	aim_card_visual_count -= 1
 
 
 func kill_entity(entity: Entity):
+	var turn_pos = turn_order.find(entity)
+	if turn_pos != -1:
+		turn_order[turn_pos] = null
+	
 	var list: Array[Entity]
 	var container: XSort
 	if entity.team == Entity.TEAM.ALLY:
 		list = allies
 		container = ally_container
+		aim_ally_visual_count -= 1
 	else:
 		list = enemies
 		container = enemy_container
+		aim_enemy_visual_count -= 1
 	
 	list.erase(entity)
 	container.remove_child(entity)
 	entity.die()
-	
-	if entity == player:
-		print("Game over") ## TODO: Implement game over logic
 
 
 func add_entity(entity: Entity, list: Array[Entity], container: Node2D, pos: int, team: Entity.TEAM):
@@ -149,22 +203,111 @@ func add_enemy(enemy: Entity, pos: int):
 
 #region Interaction
 func select_card(card: Card):
+	if not can_interact:
+		return false
+	
 	selected_cards.append(card)
+	update_play()
+	update_discard()
+	return true
 
 
 func desselect_card(card: Card):
 	selected_cards.erase(card)
+	update_play()
+	update_discard()
 
 
 func select_entity(entity: Entity):
+	if not can_interact:
+		return false
+	
 	if selected_entity != null:
 		selected_entity.pressed()
 	selected_entity = entity
+	update_play()
+	return true
 
 
 func desselect_entity(entity: Entity):
 	selected_entity = null
+	update_play()
+
+
+func update_play():
+	if len(selected_cards) == 0 or len(selected_cards) > 1:
+		select_card_error.show()
+		can_play = false
+		return
+	select_card_error.hide()
+	
+	if selected_entity == null:
+		select_entity_error.show()
+		can_play = false
+		return
+	select_entity_error.hide()
+	
+	can_play = true
+
+
+func update_discard():
+	if len(selected_cards) < 1 or len(selected_cards) > 2:
+		missing_card_error.show()
+		can_discard = false
+		return
+	missing_card_error.hide()
+	
+	can_discard = true
+
+
+func play():
+	if not can_play:
+		return
+	can_play = false
+	
+	var entity = selected_entity
+	var card = selected_cards[0]
+	selected_entity.pressed()
+	card.pressed()
+	
+	can_interact = false
+	
+	await card.play(entity)
+	
+	pull_from_deck()
+	
+	played.emit()
+
+
+func discard():
+	if not can_discard:
+		return
+	can_discard = false
+	
+	var cards = selected_cards.duplicate()
+	if selected_entity != null:
+		selected_entity.pressed()
+	for card in cards:
+		card.pressed()
+	
+	can_interact = false
+	
+	var cards_to_pull = len(cards)
+	for i in range(cards_to_pull):
+		discard_card(cards.pop_back())
+		await sleep(SMALL_SLEEP_TIME)
+	
+	for i in range(cards_to_pull):
+		pull_from_deck()
+		await sleep(SMALL_SLEEP_TIME)
+	
+	played.emit()
 #endregion
+
+
+func sleep(time: float=DEFAULT_SLEEP_TIME):
+	sleep_timer.start(time)
+	await sleep_timer.timeout
 
 
 func get_attackable_adversaries(entity: Entity):
