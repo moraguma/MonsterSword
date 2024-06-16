@@ -5,3 +5,5 @@
 
 [node name="Entity" instance=ExtResource("1_wxsi7")]
 icon = ExtResource("2_vs4ly")
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

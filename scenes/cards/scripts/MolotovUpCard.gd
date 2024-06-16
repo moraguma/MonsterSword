@@ -1,17 +1,17 @@
 extends Card
 
 
-const ARMOR = preload("res://scenes/entities/Armor.tscn")
+const ENTITY = preload("res://scenes/entities/MolotovUp.tscn")
 
 
 func _ready():
-	set_tooltip("Deals 5 damage to the selected entity and spawns a 5HP protective armor on their team")
+	set_tooltip("Heals the selected entity for 8 HP and spawns a 3HP explode 8 skull on their team")
 
 
 func play(entity: Entity):
-	await entity.get_attacked(battle.player, 5)
+	await entity.heal(8)
 	
-	var enemy = ARMOR.instantiate()
+	var enemy = ENTITY.instantiate()
 	if entity.team == Entity.TEAM.ENEMY:
 		battle.add_enemy(enemy, battle.get_entity_position(entity) + 1)
 	else:

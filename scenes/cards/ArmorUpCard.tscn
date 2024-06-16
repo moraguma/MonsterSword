@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhi0c1yx5ek5n"]
+
+[ext_resource type="PackedScene" uid="uid://cnu0dbem7j4j5" path="res://scenes/Card.tscn" id="1_35pw5"]
+[ext_resource type="Texture2D" uid="uid://hj2bnxsba7gf" path="res://resources/sprites/cards/armaduraup.png" id="2_jhlt5"]
+[ext_resource type="Script" path="res://scenes/cards/scripts/ArmorUpCard.gd" id="3_jdwdd"]
+
+[node name="Card" instance=ExtResource("1_35pw5")]
+texture = ExtResource("2_jhlt5")
+script = ExtResource("3_jdwdd")
+
+[connection signal="mouse_entered" from="Button" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="pressed"]

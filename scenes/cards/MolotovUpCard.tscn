@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://nq34xic40wln"]
+
+[ext_resource type="PackedScene" uid="uid://cnu0dbem7j4j5" path="res://scenes/Card.tscn" id="1_lcnyw"]
+[ext_resource type="Texture2D" uid="uid://c5s40h5bpqwuj" path="res://resources/sprites/cards/caveiraup.png" id="2_tvhnn"]
+[ext_resource type="Script" path="res://scenes/cards/scripts/MolotovUpCard.gd" id="3_yhxc7"]
+
+[node name="Card" instance=ExtResource("1_lcnyw")]
+texture = ExtResource("2_tvhnn")
+script = ExtResource("3_yhxc7")
+
+[connection signal="mouse_entered" from="Button" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="pressed"]

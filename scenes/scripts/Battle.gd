@@ -65,7 +65,7 @@ func initialize(battle_enemies: Array, deck: Array[Card]):
 
 
 func _ready():
-	var test_deck_cards = [preload("res://scenes/cards/SwordCard.tscn"), preload("res://scenes/cards/StaffCard.tscn"), preload("res://scenes/cards/ArmorCard.tscn"), preload("res://scenes/cards/DaggerCard.tscn"), preload("res://scenes/cards/MolotovCard.tscn")]
+	var test_deck_cards = [preload("res://scenes/cards/SwordUpCard.tscn"), preload("res://scenes/cards/StaffUpCard.tscn"), preload("res://scenes/cards/ArmorUpCard.tscn"), preload("res://scenes/cards/DaggerUpCard.tscn"), preload("res://scenes/cards/MolotovUpCard.tscn")]
 	var test_deck_quantities = [5, 5, 5, 5, 5]
 	var test_deck: Array[Card] = []
 	for i in range(len(test_deck_cards)):

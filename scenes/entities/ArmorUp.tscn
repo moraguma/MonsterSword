@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw31gwiatfgeu"]
+
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_jto2f"]
+[ext_resource type="Texture2D" uid="uid://ys51gmatph3c" path="res://resources/sprites/enemies/armorup.png" id="2_0c8d5"]
+[ext_resource type="Script" path="res://scenes/entities/scripts/Armor.gd" id="3_lqb08"]
+[ext_resource type="Texture2D" uid="uid://bbnxau4cakea7" path="res://resources/sprites/icons/armor.png" id="4_jd8x1"]
+
+[node name="Entity" instance=ExtResource("1_jto2f")]
+texture = ExtResource("2_0c8d5")
+script = ExtResource("3_lqb08")
+icon = ExtResource("4_jd8x1")
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

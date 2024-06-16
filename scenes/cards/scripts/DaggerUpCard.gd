@@ -1,16 +1,16 @@
 extends Card
 
 
-const DAGGER = preload("res://scenes/entities/Dagger.tscn")
+const DAGGER = preload("res://scenes/entities/DaggerUp.tscn")
 
 
 func _ready():
-	set_tooltip("Lowers the attack of the selected entity by 2 and spawns a 3HP attackmaster 1 dagger on their team")
+	set_tooltip("Lowers the attack of the selected entity by 3 and spawns a 3HP attackmaster 2 dagger on their team")
 
 
 func play(entity: Entity):
 	var effect = preload("res://scenes/effects/AttackUp.tscn").instantiate()
-	effect.initialize(-2)
+	effect.initialize(-3)
 	
 	await entity.add_effect(effect)
 	

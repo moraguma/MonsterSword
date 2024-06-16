@@ -8,6 +8,9 @@
 [node name="Entity" instance=ExtResource("1_ap460")]
 texture = ExtResource("2_p6pwd")
 script = ExtResource("3_7saiu")
+val = 1
 life = 2
 max_life = 2
 icon = ExtResource("4_kl4cv")
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

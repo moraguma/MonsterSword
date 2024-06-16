@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp68xw3c0yd2f"]
+[gd_scene load_steps=5 format=3 uid="uid://cp68xw3c0yd2f"]
 
 [ext_resource type="Script" path="res://scenes/scripts/Battle.gd" id="1_vtqwh"]
 [ext_resource type="Script" path="res://scenes/scripts/XSort.gd" id="2_olqeh"]
 [ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="3_abpcw"]
+[ext_resource type="Texture2D" uid="uid://c7va7yc6wmyi" path="res://resources/sprites/bg/background.png" id="4_b4u3m"]
 
 [node name="Battle" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_vtqwh")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(0, -56)
+texture = ExtResource("4_b4u3m")
+centered = false
 
 [node name="Allies" type="Node2D" parent="."]
 position = Vector2(120, 80)
