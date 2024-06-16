@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf25q03ai1bav"]
+
+[ext_resource type="PackedScene" uid="uid://di51tkf6et4as" path="res://scenes/effects/Effect.tscn" id="1_e0uwp"]
+[ext_resource type="Texture2D" uid="uid://vlr5037yiv1w" path="res://resources/sprites/effects/heal.png" id="2_q8idg"]
+[ext_resource type="Script" path="res://scenes/effects/scripts/Heal.gd" id="3_3sqe6"]
+
+[node name="Effect" instance=ExtResource("1_e0uwp")]
+texture = ExtResource("2_q8idg")
+script = ExtResource("3_3sqe6")

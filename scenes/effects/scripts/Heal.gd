@@ -4,13 +4,9 @@ extends Effect
 var target = null
 
 
-func _init():
-	icon = preload("res://resources/sprites/effects/heal.png")
-
-
-## Called when entity receives effect. Should register to any needed signals
-func attach(new_entity: Entity):
-	entity = new_entity
+func _ready():
+	tooltip.tooltip_text = "At the start of its turn, heals a random ally for X health"
+	super()
 
 
 ## Called at the start of player's turn. Returns true if loaded any intent and
@@ -25,15 +21,17 @@ func process_intent():
 	if len(unhealthy_allies) > 0:
 		allies = unhealthy_allies
 	
-	target = allies[randi() % len(allies)]
+	var aim_idx = randi() % len(allies)
+	target = allies[aim_idx]
 	
-	entity.display_intent(target, icon)
+	entity.display_intent(target, texture, "Will heal %s number %s for %s HP" % ["enemy" if entity.team == Entity.TEAM.ENEMY else "ally", aim_idx + 1, value])
 	return true
 
 
 ## Called in the attached entity's turn. Returns true if an action was performed
 ## and false otherwise
 func turn():
+	entity.animate()
 	await entity.battle.try_to_call_on_entity(target, "heal", [value])
 	
 	target = null

@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp68xw3c0yd2f"]
+
+[ext_resource type="Script" path="res://scenes/scripts/Battle.gd" id="1_vtqwh"]
+[ext_resource type="Script" path="res://scenes/scripts/XSort.gd" id="2_olqeh"]
+[ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="3_abpcw"]
+
+[node name="Battle" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_vtqwh")
+
+[node name="Allies" type="Node2D" parent="."]
+position = Vector2(120, 80)
+script = ExtResource("2_olqeh")
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2(360, 80)
+script = ExtResource("2_olqeh")
+
+[node name="Cards" type="Node2D" parent="."]
+position = Vector2(240, 240)
+script = ExtResource("2_olqeh")
+
+[node name="SleepTimer" type="Timer" parent="."]
+
+[node name="Discard" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 217.0
+offset_right = 108.0
+offset_bottom = 267.0
+theme = ExtResource("3_abpcw")
+text = "DISCARD"
+flat = true
+
+[node name="MissingCard" type="RichTextLabel" parent="Discard"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_abpcw")
+bbcode_enabled = true
+text = "[center]Select 2 or less cards to discard"
+
+[node name="Play" type="Button" parent="."]
+offset_left = 372.0
+offset_top = 217.0
+offset_right = 472.0
+offset_bottom = 267.0
+theme = ExtResource("3_abpcw")
+text = "PLAY"
+flat = true
+
+[node name="SelectCard" type="RichTextLabel" parent="Play"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_abpcw")
+bbcode_enabled = true
+text = "[center]Select a single card to play"
+
+[node name="SelectEntity" type="RichTextLabel" parent="Play"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_abpcw")
+bbcode_enabled = true
+text = "[center]Select an entity to target"
+
+[connection signal="pressed" from="Discard" to="." method="discard"]
+[connection signal="pressed" from="Play" to="." method="play"]

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bmrsgb2jab1xy"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bmrsgb2jab1xy"]
 
 [ext_resource type="FontFile" uid="uid://vtm8b4p2as5k" path="res://resources/fonts/kongtext/kongtext.ttf" id="1_gv4b5"]
 
@@ -14,6 +14,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oixy"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6et1"]
+bg_color = Color(0, 0, 0, 1)
+
 [resource]
 default_font = ExtResource("1_gv4b5")
 default_font_size = 8
@@ -23,3 +26,4 @@ Button/styles/hover = SubResource("StyleBoxEmpty_1pku6")
 Button/styles/normal = SubResource("StyleBoxEmpty_o8bbe")
 Button/styles/pressed = SubResource("StyleBoxEmpty_wvne8")
 RichTextLabel/styles/normal = SubResource("StyleBoxFlat_2oixy")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_l6et1")

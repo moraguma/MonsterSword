@@ -11,5 +11,3 @@ script = ExtResource("3_7saiu")
 life = 2
 max_life = 2
 icon = ExtResource("4_kl4cv")
-
-[connection signal="pressed" from="Button" to="." method="pressed"]

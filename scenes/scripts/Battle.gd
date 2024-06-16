@@ -6,8 +6,8 @@ signal played
 
 
 const PLAYER_SCENE = preload("res://scenes/entities/Player.tscn")
-const SMALL_SLEEP_TIME = 0.2
-const DEFAULT_SLEEP_TIME = 0.6
+const SMALL_SLEEP_TIME = 0.75
+const DEFAULT_SLEEP_TIME = 1.5
 
 
 const MAX_CARDS = 5
@@ -92,10 +92,12 @@ func _ready():
 		
 		can_interact = true
 		await played
+		await sleep()
 		
 		for entity in turn_order:
 			if entity != null:
 				await entity.turn()
+				entity.clear_intents()
 				await sleep()
 	
 	if not player in allies:

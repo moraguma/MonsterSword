@@ -6,7 +6,6 @@ enum AIM_TYPES {ATTACK}
 
 const DAMAGE_COLOR = Color.WHITE
 const HEAL_COLOR = Color.GREEN
-const EFFECT_DISPLAY = preload("res://scenes/EffectDisplay.tscn")
 const INTENT_SCENE = preload("res://scenes/Intent.tscn")
 const ATTACK_TEX = preload("res://resources/sprites/effects/attack.png")
 
@@ -20,7 +19,6 @@ const EFFECT_MAX_SPACING = 48
 @export var max_life: int
 @export var attack: int
 var effects: Array[Effect]
-var effect_displays: Array
 @onready var effect_container: Node2D = $StatsHolder/Effects
 
 @export var icon: Texture
@@ -62,13 +60,15 @@ func update_values():
 	attack_display.text = str(attack)
 
 
-## Called at the start of the player's turn. Returns true if this entity intends
-## on doing something and false otherwise
-func process_intent():
+func clear_intents():
 	intents = []
 	for child in intent_container.get_children():
 		child.queue_free()
-	
+
+
+## Called at the start of the player's turn. Returns true if this entity intends
+## on doing something and false otherwise
+func process_intent():
 	var intent_loaded = false
 	
 	# Process effect intents
@@ -78,13 +78,17 @@ func process_intent():
 	
 	var adversaries = battle.get_attackable_adversaries(self)
 	if attack > 0 and len(adversaries) > 0:
-		attack_aim = adversaries[randi() % len(adversaries)]
-		display_intent(attack_aim, ATTACK_TEX)
+		var aim_idx = randi() % len(adversaries)
+		attack_aim = adversaries[aim_idx]
+		display_intent(attack_aim, ATTACK_TEX, "Will attack %s number %s for %s damage" % ["ally" if team == TEAM.ENEMY else "enemy", aim_idx + 1, attack])
 		intent_loaded = true
 	else:
 		attack_aim = null
 	
 	battle.space_elements(intents, len(intents), len(intents), INTENT_MAX_SPACING)
+	
+	if intent_loaded:
+		animate_up()
 	return intent_loaded
 
 
@@ -116,6 +120,7 @@ func get_attacked(entity: Entity, damage: int):
 
 func heal(value):
 	life = min(max_life, life + value)
+	update_values()
 	
 	material.set_shader_parameter("color", HEAL_COLOR)
 	await blink()
@@ -145,41 +150,30 @@ func die():
 
 ## Displays aim circle on top of character that displays type of interaction and
 ## aimed entity
-func display_intent(aim: Entity, type: Texture):
+func display_intent(aim: Entity, type: Texture, tooltip_text: String):
 	var intent: Intent = INTENT_SCENE.instantiate()
-	intent.initialize(aim, type)
+	intent.initialize(aim, type, tooltip_text)
 	intents.append(intent)
 	intent_container.add_child(intent)
 
 
 func add_effect(effect: Effect):
 	for e in effects:
-		if e.icon == effect.icon:
-			e.value += effect.value
-			for d in effect_container.get_children():
-				if d.texture == effect.icon:
-					d.update_value(effect.value)
-					break
+		if e.texture == effect.texture:
+			e.update_value(effect.value)
 			return
 	
-	effect.entity = self
+	effect.attach(self)
 	effects.append(effect)
+	effect_container.add_child(effect)
 	
-	var display = EFFECT_DISPLAY.instantiate()
-	effect_container.add_child(display)
-	display.initialize(effect.icon, effect.value)
-	effect_displays.append(display)
-	
-	battle.space_elements(effect_displays, len(effects), len(effects), EFFECT_MAX_SPACING)
+	battle.space_elements(effects, len(effects), len(effects), EFFECT_MAX_SPACING)
 
 
 func delete_effect(effect: Effect):
 	effects.erase(effect)
-	for d in effect_container.get_children():
-		if d.texture == effect.icon:
-			effect_displays.erase(d)
-			d.queue_free()
-	battle.space_elements(effect_displays, len(effects), len(effects), EFFECT_MAX_SPACING)
+	effect.queue_free()
+	battle.space_elements(effects, len(effects), len(effects), EFFECT_MAX_SPACING)
 
 
 func pressed():
@@ -202,4 +196,8 @@ func delete_order():
 
 
 func animate():
-	offset += ANIMATION_MOVEMENT * (Vector2(1, 0) if team == TEAM.ENEMY else Vector2(-1, 0)) 
+	offset += ANIMATION_MOVEMENT * (Vector2(-1, 0) if team == TEAM.ENEMY else Vector2(1, 0)) 
+
+
+func animate_up():
+	offset += ANIMATION_MOVEMENT * Vector2(0, -1)

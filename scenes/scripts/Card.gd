@@ -14,6 +14,10 @@ var selected = false
 @onready var battle: Battle = get_parent().get_parent()
 
 
+func set_tooltip(text):
+	$Button.tooltip_text = text
+
+
 func play(entity: Entity):
 	pass
 

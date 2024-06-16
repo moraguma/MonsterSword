@@ -4,6 +4,10 @@ extends Card
 const TEST_ENEMY = preload("res://scenes/entities/Sword.tscn")
 
 
+func _ready():
+	set_tooltip("Deals 2 damage to the selected entity and spawns a 1HP 1ATK sword on their team")
+
+
 func play(entity: Entity):
 	await entity.get_attacked(battle.player, 2)
 	

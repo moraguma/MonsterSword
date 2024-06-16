@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://di51tkf6et4as"]
+
+[ext_resource type="Texture2D" uid="uid://bbufmmqmgrolk" path="res://resources/sprites/effects/attack.png" id="1_c7mxq"]
+[ext_resource type="Script" path="res://scenes/effects/scripts/Effect.gd" id="2_fg45t"]
+[ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="3_plsn1"]
+[ext_resource type="Script" path="res://scenes/effects/scripts/TooltipDisplay.gd" id="4_oy6pe"]
+
+[node name="Effect" type="Sprite2D"]
+texture = ExtResource("1_c7mxq")
+script = ExtResource("2_fg45t")
+
+[node name="Tooltip" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+theme = ExtResource("3_plsn1")
+script = ExtResource("4_oy6pe")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("3_plsn1")
+text = "1"

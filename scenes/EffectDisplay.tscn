@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/scripts/EffectDisplay.gd" id="2_2b8ga"]
 [ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="2_356bs"]
 
-[node name="EffectDisplay" type="Sprite2D"]
+[node name="Effect" type="Sprite2D"]
 texture = ExtResource("1_mtutn")
 script = ExtResource("2_2b8ga")
 

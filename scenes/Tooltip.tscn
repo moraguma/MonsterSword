@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyhb6lgw5gaw5"]
+
+[ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="1_dyyxy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkxsa"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Tooltip" type="Label"]
+custom_minimum_size = Vector2(150, 100)
+offset_right = 141.0
+offset_bottom = 93.0
+theme = ExtResource("1_dyyxy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lkxsa")
+autowrap_mode = 3
