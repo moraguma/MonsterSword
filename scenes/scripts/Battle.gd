@@ -5,7 +5,7 @@ class_name Battle
 signal played
 
 
-const PLAYER_SCENE = preload("res://scenes/Player.tscn")
+const PLAYER_SCENE = preload("res://scenes/entities/Player.tscn")
 const SMALL_SLEEP_TIME = 0.2
 const DEFAULT_SLEEP_TIME = 0.6
 
@@ -65,11 +65,14 @@ func initialize(battle_enemies: Array, deck: Array[Card]):
 
 
 func _ready():
-	var test_card = preload("res://scenes/cards/TestCard.tscn")
+	var sword_card = preload("res://scenes/cards/SwordCard.tscn")
 	var test_deck: Array[Card] = []
-	for i in range(10):
-		test_deck.append(test_card.instantiate())
-	var test_enemy = preload("res://scenes/entities/TestEnemy.tscn")
+	for i in range(5):
+		test_deck.append(sword_card.instantiate())
+	var staff_card = preload("res://scenes/cards/StaffCard.tscn")
+	for i in range(5):
+		test_deck.append(staff_card.instantiate())
+	var test_enemy = preload("res://scenes/entities/Sword.tscn")
 	var test_enemies: Array[Entity] = []
 	for i in range(2):
 		test_enemies.append(test_enemy.instantiate())
@@ -305,11 +308,31 @@ func discard():
 #endregion
 
 
+func get_entity_position(entity: Entity):
+	return (allies if entity.team == Entity.TEAM.ALLY else enemies).find(entity)
+
+
 func sleep(time: float=DEFAULT_SLEEP_TIME):
 	sleep_timer.start(time)
 	await sleep_timer.timeout
 
 
 func get_attackable_adversaries(entity: Entity):
-	var targets = allies.duplicate() if entity.team == entity.TEAM.ENEMY else enemies.duplicate()
+	var targets = get_opponents(entity)
 	return targets
+
+
+func get_allies(entity: Entity):
+	return allies.duplicate() if entity.team == entity.TEAM.ALLY else enemies.duplicate()
+
+
+func get_opponents(entity: Entity):
+	return allies.duplicate() if entity.team == entity.TEAM.ENEMY else enemies.duplicate()
+
+
+func try_to_call_on_entity(entity, method_name, args):
+	for list in [allies, enemies]:
+		for e in list:
+			if entity == e:
+				await entity.callv(method_name, args)
+				return

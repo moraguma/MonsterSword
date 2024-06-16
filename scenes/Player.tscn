@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ggktn86dsi8o"]
-
-[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_cm87o"]
-
-[node name="Entity" instance=ExtResource("1_cm87o")]
-
-[connection signal="pressed" from="Button" to="." method="pressed"]

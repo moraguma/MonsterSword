@@ -3,6 +3,8 @@ class_name Effect
 
 
 var entity: Entity
+var value: int
+var icon: Texture
 
 
 ## Called when entity receives effect. Should register to any needed signals

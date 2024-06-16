@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bia2khhch52s6"]
+
+[ext_resource type="PackedScene" uid="uid://cnu0dbem7j4j5" path="res://scenes/Card.tscn" id="1_n0xxs"]
+[ext_resource type="Texture2D" uid="uid://dk6kj3jt18bwr" path="res://resources/sprites/cards/cajado.png" id="2_y8gyu"]
+[ext_resource type="Script" path="res://scenes/cards/scripts/StaffCard.gd" id="3_l0m28"]
+
+[node name="Card" instance=ExtResource("1_n0xxs")]
+texture = ExtResource("2_y8gyu")
+script = ExtResource("3_l0m28")
+
+[connection signal="mouse_entered" from="Button" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="pressed"]

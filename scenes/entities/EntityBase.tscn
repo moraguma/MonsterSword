@@ -1,18 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcw5r1it5fj7o"]
+[gd_scene load_steps=8 format=3 uid="uid://bcw5r1it5fj7o"]
 
-[ext_resource type="Script" path="res://scenes/scripts/Entity.gd" id="1_j23pg"]
+[ext_resource type="Shader" path="res://resources/shader/Blink.gdshader" id="1_4avyw"]
 [ext_resource type="Texture2D" uid="uid://cqcipj58oriw1" path="res://resources/sprites/enemies/player11.png" id="2_f8e5w"]
+[ext_resource type="Script" path="res://scenes/entities/scripts/Entity.gd" id="3_4mhra"]
 [ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="3_mnmec"]
 [ext_resource type="Texture2D" uid="uid://quxybynnyglp" path="res://icon.svg" id="4_hk3c5"]
+[ext_resource type="Script" path="res://scenes/scripts/XSort.gd" id="4_l21fh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpn6w"]
+shader = ExtResource("1_4avyw")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/amount = 0.0
 
 [node name="Entity" type="Sprite2D"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_bpn6w")
 texture = ExtResource("2_f8e5w")
-script = ExtResource("1_j23pg")
+script = ExtResource("3_4mhra")
 life = 10
 max_life = 10
 
 [node name="IntentHolder" type="Node2D" parent="."]
+
+[node name="Intents" type="Node2D" parent="IntentHolder"]
+script = ExtResource("4_l21fh")
 
 [node name="TurnTimer" type="Label" parent="IntentHolder"]
 texture_filter = 1
@@ -42,13 +53,18 @@ metadata/_edit_use_anchors_ = true
 [node name="ATK" type="Label" parent="StatsHolder"]
 texture_filter = 1
 offset_left = -64.0
+offset_top = -14.0
 offset_right = 64.0
-offset_bottom = 64.0
+offset_bottom = 50.0
 theme = ExtResource("3_mnmec")
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Effects" type="Node2D" parent="StatsHolder"]
+position = Vector2(0, 32)
+script = ExtResource("4_l21fh")
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 8

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://xnwagmmhvkev"]
+
+[ext_resource type="Texture2D" uid="uid://bbufmmqmgrolk" path="res://resources/sprites/effects/attack.png" id="1_mtutn"]
+[ext_resource type="Script" path="res://scenes/scripts/EffectDisplay.gd" id="2_2b8ga"]
+[ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="2_356bs"]
+
+[node name="EffectDisplay" type="Sprite2D"]
+texture = ExtResource("1_mtutn")
+script = ExtResource("2_2b8ga")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("2_356bs")
+text = "1"

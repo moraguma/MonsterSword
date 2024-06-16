@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://n4w0iy3o73eu"]
+
+[ext_resource type="Script" path="res://scenes/scripts/Intent.gd" id="1_kwxfv"]
+
+[node name="Intent" type="Sprite2D"]
+script = ExtResource("1_kwxfv")
+
+[node name="Type" type="Sprite2D" parent="."]
+position = Vector2(6, 6)

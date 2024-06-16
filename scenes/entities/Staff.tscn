@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://clu0xr4du6wvr"]
+
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_ap460"]
+[ext_resource type="Texture2D" uid="uid://swwensnddko0" path="res://resources/sprites/enemies/staff.png" id="2_p6pwd"]
+[ext_resource type="Script" path="res://scenes/entities/scripts/Staff.gd" id="3_7saiu"]
+[ext_resource type="Texture2D" uid="uid://ks7cgeual28t" path="res://resources/sprites/icons/heal.png" id="4_kl4cv"]
+
+[node name="Entity" instance=ExtResource("1_ap460")]
+texture = ExtResource("2_p6pwd")
+script = ExtResource("3_7saiu")
+life = 2
+max_life = 2
+icon = ExtResource("4_kl4cv")
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

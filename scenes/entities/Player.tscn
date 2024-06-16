@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhtjyoo1vyqkx"]
+
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_wxsi7"]
+[ext_resource type="Texture2D" uid="uid://bggxbvyro46j" path="res://resources/sprites/icons/player.png" id="2_vs4ly"]
+
+[node name="Entity" instance=ExtResource("1_wxsi7")]
+icon = ExtResource("2_vs4ly")

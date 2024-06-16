@@ -5,7 +5,7 @@ const TEST_ENEMY = preload("res://scenes/entities/TestEnemy.tscn")
 
 
 func play(entity: Entity):
-	entity.get_attacked(battle.player, 2)
+	await entity.get_attacked(battle.player, 2)
 	
 	var enemy = TEST_ENEMY.instantiate()
 	if entity.team == Entity.TEAM.ENEMY:

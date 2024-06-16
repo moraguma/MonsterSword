@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://bmrsgb2jab1xy"]
 
-[ext_resource type="FontFile" uid="uid://daab7vsu8k3vn" path="res://resources/fonts/Pixeled.ttf" id="1_fu6xf"]
+[ext_resource type="FontFile" uid="uid://vtm8b4p2as5k" path="res://resources/fonts/kongtext/kongtext.ttf" id="1_gv4b5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vphti"]
 
@@ -15,8 +15,8 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oixy"]
 
 [resource]
-default_font = ExtResource("1_fu6xf")
-default_font_size = 6
+default_font = ExtResource("1_gv4b5")
+default_font_size = 8
 Button/styles/disabled = SubResource("StyleBoxEmpty_vphti")
 Button/styles/focus = SubResource("StyleBoxEmpty_kocxn")
 Button/styles/hover = SubResource("StyleBoxEmpty_1pku6")
