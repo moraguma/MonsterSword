@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnj4qesudxa0u"]
+
+[ext_resource type="PackedScene" uid="uid://di51tkf6et4as" path="res://scenes/effects/Effect.tscn" id="1_halu1"]
+[ext_resource type="Texture2D" uid="uid://tpf6jvoiqpp1" path="res://resources/sprites/effects/protect.png" id="2_s45v3"]
+[ext_resource type="Script" path="res://scenes/effects/scripts/Protect.gd" id="3_7louf"]
+
+[node name="Effect" instance=ExtResource("1_halu1")]
+texture = ExtResource("2_s45v3")
+script = ExtResource("3_7louf")

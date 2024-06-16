@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6b4pl1gr7on5"]
+
+[ext_resource type="PackedScene" uid="uid://cnu0dbem7j4j5" path="res://scenes/Card.tscn" id="1_41kgw"]
+[ext_resource type="Texture2D" uid="uid://8a6f6fkqfcde" path="res://resources/sprites/cards/caveira.png" id="2_q2bjo"]
+[ext_resource type="Script" path="res://scenes/cards/scripts/MolotovCard.gd" id="3_urtlw"]
+
+[node name="Card" instance=ExtResource("1_41kgw")]
+texture = ExtResource("2_q2bjo")
+script = ExtResource("3_urtlw")
+
+[connection signal="mouse_entered" from="Button" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="pressed"]

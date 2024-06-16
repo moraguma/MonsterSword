@@ -40,3 +40,7 @@ func process_intent():
 ## and false otherwise
 func turn():
 	pass
+
+
+func blocks_attack():
+	return false

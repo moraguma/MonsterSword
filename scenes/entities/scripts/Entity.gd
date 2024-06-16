@@ -27,6 +27,7 @@ var team: TEAM
 var attack_aim: Entity
 var selected = false
 var alive = true
+var death_calls: Array[Effect] = []
 
 var intents: Array[Intent] = []
 @onready var intent_container: Node2D = $IntentHolder/Intents
@@ -103,6 +104,12 @@ func turn():
 	if attack_aim == null:
 		return
 	
+	if not attack_aim.is_protect():
+		for entity in battle.get_opponents(self):
+			if entity.is_protect():
+				attack_aim = entity
+				break
+	
 	animate()
 	await attack_aim.get_attacked(self, attack)
 
@@ -115,7 +122,7 @@ func get_attacked(entity: Entity, damage: int):
 	await blink()
 	
 	if life <= 0:
-		battle.kill_entity(self)
+		await battle.kill_entity(self)
 
 
 func heal(value):
@@ -145,6 +152,10 @@ func set_blink_parameter(amount):
 
 func die():
 	alive = false
+	
+	for effect in death_calls:
+		await effect.die()
+	
 	queue_free() # TODO: Implement dying animation
 
 
@@ -201,3 +212,10 @@ func animate():
 
 func animate_up():
 	offset += ANIMATION_MOVEMENT * Vector2(0, -1)
+
+
+func is_protect():
+	for effect in effects:
+		if effect.blocks_attack():
+			return true
+	return false

@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg7qatfgabncj"]
+
+[ext_resource type="PackedScene" uid="uid://di51tkf6et4as" path="res://scenes/effects/Effect.tscn" id="1_pn7gi"]
+[ext_resource type="Texture2D" uid="uid://n1802gwq38ax" path="res://resources/sprites/effects/blademaster.png" id="2_4q31d"]
+[ext_resource type="Script" path="res://scenes/effects/scripts/Blademaster.gd" id="3_1otx5"]
+
+[node name="Effect" instance=ExtResource("1_pn7gi")]
+texture = ExtResource("2_4q31d")
+script = ExtResource("3_1otx5")

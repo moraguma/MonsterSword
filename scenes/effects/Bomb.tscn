@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://hydfbl0yepsh"]
+
+[ext_resource type="PackedScene" uid="uid://di51tkf6et4as" path="res://scenes/effects/Effect.tscn" id="1_x04q4"]
+[ext_resource type="Texture2D" uid="uid://b65o6u05fd7tm" path="res://resources/sprites/effects/bomb.png" id="2_lx4rw"]
+[ext_resource type="Script" path="res://scenes/effects/scripts/Bomb.gd" id="3_a5wto"]
+
+[node name="Effect" instance=ExtResource("1_x04q4")]
+texture = ExtResource("2_lx4rw")
+script = ExtResource("3_a5wto")

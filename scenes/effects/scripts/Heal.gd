@@ -6,7 +6,7 @@ var target = null
 
 func _ready():
 	tooltip.tooltip_text = "At the start of its turn, heals a random ally for X health"
-	super()
+	
 
 
 ## Called at the start of player's turn. Returns true if loaded any intent and

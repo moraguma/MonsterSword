@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://tfbdcj2kmdue"]
+
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_v1x44"]
+[ext_resource type="Texture2D" uid="uid://cvxasvy1lpnfy" path="res://resources/sprites/enemies/bomb.png" id="2_bo8dh"]
+[ext_resource type="Script" path="res://scenes/entities/scripts/Molotov.gd" id="3_quody"]
+[ext_resource type="Texture2D" uid="uid://kjxss0ndo6r" path="res://resources/sprites/icons/bomb.png" id="4_rtf5q"]
+
+[node name="Entity" instance=ExtResource("1_v1x44")]
+texture = ExtResource("2_bo8dh")
+script = ExtResource("3_quody")
+life = 5
+max_life = 0
+icon = ExtResource("4_rtf5q")
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

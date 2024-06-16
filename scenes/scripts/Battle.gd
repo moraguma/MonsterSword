@@ -65,13 +65,13 @@ func initialize(battle_enemies: Array, deck: Array[Card]):
 
 
 func _ready():
-	var sword_card = preload("res://scenes/cards/SwordCard.tscn")
+	var test_deck_cards = [preload("res://scenes/cards/SwordCard.tscn"), preload("res://scenes/cards/StaffCard.tscn"), preload("res://scenes/cards/ArmorCard.tscn"), preload("res://scenes/cards/DaggerCard.tscn"), preload("res://scenes/cards/MolotovCard.tscn")]
+	var test_deck_quantities = [5, 5, 5, 5, 5]
 	var test_deck: Array[Card] = []
-	for i in range(5):
-		test_deck.append(sword_card.instantiate())
-	var staff_card = preload("res://scenes/cards/StaffCard.tscn")
-	for i in range(5):
-		test_deck.append(staff_card.instantiate())
+	for i in range(len(test_deck_cards)):
+		for j in range(test_deck_quantities[i]):
+			test_deck.append(test_deck_cards[i].instantiate())
+
 	var test_enemy = preload("res://scenes/entities/Sword.tscn")
 	var test_enemies: Array[Entity] = []
 	for i in range(2):
@@ -186,10 +186,13 @@ func kill_entity(entity: Entity):
 	
 	list.erase(entity)
 	container.remove_child(entity)
-	entity.die()
+	await entity.die()
 
 
 func add_entity(entity: Entity, list: Array[Entity], container: Node2D, pos: int, team: Entity.TEAM):
+	if pos > len(list):
+		pos = len(list)
+	
 	entity.team = team
 	list.insert(pos, entity)
 	container.add_child(entity)
@@ -278,6 +281,7 @@ func play():
 	can_interact = false
 	
 	await card.play(entity)
+	discard_card(card)
 	
 	pull_from_deck()
 	
@@ -321,7 +325,12 @@ func sleep(time: float=DEFAULT_SLEEP_TIME):
 
 func get_attackable_adversaries(entity: Entity):
 	var targets = get_opponents(entity)
-	return targets
+	var protects = []
+	for target in targets:
+		if target.is_protect():
+			protects.append(target)
+	
+	return protects if len(protects) > 0 else targets
 
 
 func get_allies(entity: Entity):

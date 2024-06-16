@@ -19,7 +19,6 @@ texture = ExtResource("2_f8e5w")
 script = ExtResource("3_4mhra")
 life = 10
 max_life = 10
-attack = null
 
 [node name="IntentHolder" type="Node2D" parent="."]
 

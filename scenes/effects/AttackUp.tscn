@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvq6vy8td7ylg"]
+
+[ext_resource type="PackedScene" uid="uid://di51tkf6et4as" path="res://scenes/effects/Effect.tscn" id="1_xg8vk"]
+[ext_resource type="Script" path="res://scenes/effects/scripts/AttackUp.gd" id="2_f8mnc"]
+
+[node name="Effect" instance=ExtResource("1_xg8vk")]
+script = ExtResource("2_f8mnc")
