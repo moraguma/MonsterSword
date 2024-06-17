@@ -108,6 +108,8 @@ func turn():
 		if not alive:
 			return
 	
+	if attack <= 0:
+		return
 	if attack_aim == null:
 		return
 	

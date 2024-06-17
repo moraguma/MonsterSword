@@ -353,7 +353,6 @@ func get_entity_position(entity: Entity):
 
 
 func sleep(time: float=DEFAULT_SLEEP_TIME):
-	print(time_modifier, " - ", time / time_modifier)
 	if no_cards:
 		time /= NO_CARD_TIME_MULTIPLIER
 	
