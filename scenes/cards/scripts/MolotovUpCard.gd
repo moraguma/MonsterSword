@@ -5,7 +5,7 @@ const ENTITY = preload("res://scenes/entities/MolotovUp.tscn")
 
 
 func _ready():
-	set_tooltip("Heals the selected entity for 8 HP and spawns a 3HP explode 8 skull on their team")
+	set_tooltip("Heals the selected entity for 12HP and spawns a 3HP very volatile skull on their team")
 
 
 func play(entity: Entity):

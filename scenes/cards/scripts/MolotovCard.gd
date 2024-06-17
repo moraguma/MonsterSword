@@ -6,11 +6,11 @@ const ENTITY = preload("res://scenes/entities/Molotov.tscn")
 
 func _ready():
 	upgrade_card = preload("res://scenes/cards/MolotovUpCard.tscn")
-	set_tooltip("Heals the selected entity for 5 HP and spawns a 5HP Explode 5 skull on their team")
+	set_tooltip("Heals the selected entity for 8HP and spawns a 5HP volatile skull on their team")
 
 
 func play(entity: Entity):
-	await entity.heal(5)
+	await entity.heal(8)
 	
 	var enemy = ENTITY.instantiate()
 	if entity.team == Entity.TEAM.ENEMY:

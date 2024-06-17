@@ -15,5 +15,3 @@ offset_left = -38.5
 offset_top = -75.5
 offset_right = 3.5
 offset_bottom = -3.5
-
-[connection signal="pressed" from="Button" to="." method="pressed"]

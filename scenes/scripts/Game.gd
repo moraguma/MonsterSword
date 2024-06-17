@@ -102,6 +102,7 @@ func fisher_yates_shuffle(l):
 
 
 func _ready():
+	randomize()
 	SoundController.play_music("Game")
 	
 	build_map()
