@@ -82,5 +82,15 @@ theme = ExtResource("3_abpcw")
 bbcode_enabled = true
 text = "[center]Select an entity to target"
 
+[node name="TooLong" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 128.0
+offset_top = 216.0
+offset_right = 320.0
+offset_bottom = 272.0
+theme = ExtResource("3_abpcw")
+bbcode_enabled = true
+text = "[center]This is taking too long..."
+
 [connection signal="pressed" from="Discard" to="." method="discard"]
 [connection signal="pressed" from="Play" to="." method="play"]

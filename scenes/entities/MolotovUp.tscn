@@ -8,7 +8,7 @@
 [node name="Entity" instance=ExtResource("1_6jtfo")]
 texture = ExtResource("2_p8fuh")
 script = ExtResource("3_pknvm")
-val = 12
+val = 10
 life = 3
 max_life = 3
 icon = ExtResource("4_nam0y")

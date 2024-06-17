@@ -10,8 +10,8 @@ const PLAYER_SCENE = preload("res://scenes/entities/Player.tscn")
 const SMALL_SLEEP_TIME = 0.6
 const DEFAULT_SLEEP_TIME = 1.2
 const NO_CARD_TIME_MULTIPLIER = 1.8
-const SLEEP_MODIFIER = 1.07
-const MAX_SLEEP_MODIFIER = 2.0
+const SLEEP_MODIFIER = 1.13
+const MAX_SLEEP_MODIFIER = 2.5
 
 
 const MAX_CARDS = 5
@@ -19,7 +19,6 @@ const LERP_WEIGHT = 0.1
 
 const TOTAL_ENTITY_SPACING = 210
 const TOTAL_CARD_SPACING = 300
-const MAX_TURNS_TO_END = 15
 
 var selected_cards: Array[Card] = []
 var selected_entity: Entity = null
@@ -48,6 +47,7 @@ var time_modifier = 1.0
 
 @onready var sleep_timer: Timer = $SleepTimer
 
+var time_damage = -4
 var can_interact = false
 var can_play = false
 var can_discard = false
@@ -109,6 +109,7 @@ func battle():
 			await played
 		else:
 			no_cards = true
+			time_damage += 1
 		
 		
 		for entity in turn_order:
@@ -118,12 +119,16 @@ func battle():
 				entity.clear_intents()
 		time_modifier = 1.0
 		await sleep()
+		
+		if time_damage > 0 and player in allies:
+			$TooLong.show()
+			player.get_attacked(player, time_damage)
 	
 	for card in card_container.get_children():
 		if card.selected:
 			card.pressed()
 		card_container.remove_child(card)
-		
+	
 	if not player in allies:
 		return [false, 0]
 	return [true, player.life] # False if lost, true otherwise. Also player life
@@ -348,6 +353,7 @@ func get_entity_position(entity: Entity):
 
 
 func sleep(time: float=DEFAULT_SLEEP_TIME):
+	print(time_modifier, " - ", time / time_modifier)
 	if no_cards:
 		time /= NO_CARD_TIME_MULTIPLIER
 	

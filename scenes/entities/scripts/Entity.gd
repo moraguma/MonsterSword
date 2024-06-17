@@ -146,15 +146,16 @@ func heal(value):
 
 func blink():
 	var tween = create_tween()
-	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_CIRC)
-	tween.tween_method(set_blink_parameter, 0.0, 1.0, BLINK_HALF_TIME)
-	await battle.sleep(BLINK_HALF_TIME)
-	tween = get_tree().create_tween()
-	tween.set_ease(Tween.EASE_IN)
-	tween.set_trans(Tween.TRANS_CIRC)
-	tween.tween_method(set_blink_parameter, 1.0, 0.0, BLINK_HALF_TIME)
-	await(battle.sleep(BLINK_HALF_TIME))
+	if tween != null:
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_CIRC)
+		tween.tween_method(set_blink_parameter, 0.0, 1.0, BLINK_HALF_TIME)
+		await battle.sleep(BLINK_HALF_TIME)
+		tween = get_tree().create_tween()
+		tween.set_ease(Tween.EASE_IN)
+		tween.set_trans(Tween.TRANS_CIRC)
+		tween.tween_method(set_blink_parameter, 1.0, 0.0, BLINK_HALF_TIME)
+		await(battle.sleep(BLINK_HALF_TIME))
 
 
 func set_blink_parameter(amount):
