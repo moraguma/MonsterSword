@@ -9,8 +9,6 @@
 texture = ExtResource("2_jcc4i")
 script = ExtResource("3_ev1ms")
 val = 2
-life = 3
-max_life = 3
+life = 4
+max_life = 4
 icon = ExtResource("4_7bw77")
-
-[connection signal="pressed" from="Button" to="." method="pressed"]
