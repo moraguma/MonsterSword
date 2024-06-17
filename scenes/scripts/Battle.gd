@@ -288,7 +288,7 @@ func update_play():
 
 
 func update_discard():
-	if len(selected_cards) < 1 or len(selected_cards) > 2:
+	if len(selected_cards) < 1 or len(selected_cards) > 3:
 		missing_card_error.show()
 		can_discard = false
 		return

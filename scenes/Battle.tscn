@@ -47,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_abpcw")
 bbcode_enabled = true
-text = "[center]Select 2 or less cards to discard"
+text = "[center]Select 3 or less cards to discard"
 
 [node name="Play" type="Button" parent="."]
 offset_left = 372.0
