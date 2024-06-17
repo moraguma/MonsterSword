@@ -7,7 +7,3 @@
 [node name="Card" instance=ExtResource("1_fc4h7")]
 texture = ExtResource("2_8jp33")
 script = ExtResource("3_csjkq")
-
-[connection signal="mouse_entered" from="Button" to="." method="mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="." method="mouse_exited"]
-[connection signal="pressed" from="Button" to="." method="pressed"]

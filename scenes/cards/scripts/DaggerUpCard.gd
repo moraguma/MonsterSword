@@ -10,7 +10,7 @@ func _ready():
 
 func play(entity: Entity):
 	var effect = preload("res://scenes/effects/AttackUp.tscn").instantiate()
-	effect.initialize(-3)
+	effect.value = -3
 	
 	await entity.add_effect(effect)
 	

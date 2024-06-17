@@ -17,6 +17,11 @@ func attach(new_entity: Entity):
 
 
 func update_value(value):
+	if value > 0:
+		SoundController.play_sfx("Buff")
+	else:
+		SoundController.play_sfx("Debuff")
+	
 	super(value)
 	
 	entity.attack += value

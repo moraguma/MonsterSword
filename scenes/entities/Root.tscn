@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1hmtvm1qmbsk"]
+
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_7hq3p"]
+[ext_resource type="Texture2D" uid="uid://cj30mhjkcc0qh" path="res://resources/sprites/enemies/raiz.png" id="2_dtmrr"]
+[ext_resource type="Script" path="res://scenes/entities/scripts/Armor.gd" id="3_hh4mt"]
+[ext_resource type="Texture2D" uid="uid://b42i2l1u6gqt6" path="res://resources/sprites/icons/root.png" id="4_7woms"]
+
+[node name="Entity" instance=ExtResource("1_7hq3p")]
+texture = ExtResource("2_dtmrr")
+script = ExtResource("3_hh4mt")
+life = 20
+max_life = 20
+icon = ExtResource("4_7woms")
+damage_sound = "DMGRoot"
+
+[node name="Button" parent="." index="2"]
+offset_left = -50.5
+offset_top = -82.0
+offset_right = 3.5
+offset_bottom = 6.0
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

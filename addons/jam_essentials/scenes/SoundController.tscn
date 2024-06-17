@@ -1,0 +1,130 @@
+[gd_scene load_steps=32 format=3 uid="uid://bqkx1bmvj3rym"]
+
+[ext_resource type="Script" path="res://addons/jam_essentials/scenes/scripts/SoundController.gd" id="1_xbq3f"]
+[ext_resource type="AudioStream" uid="uid://nckyodt77cdd" path="res://resources/music/Game-Jamina-2024-Menu.ogg" id="2_1m0qb"]
+[ext_resource type="AudioStream" uid="uid://bvum7vsomnvwe" path="res://resources/sfx/Cartas/Game Jamina 2024 - SFX_card_buy.wav" id="2_bpgup"]
+[ext_resource type="AudioStream" uid="uid://kl4hwubsqhrx" path="res://resources/music/Game-Jamina-2024-Gameplay.ogg" id="3_njoia"]
+[ext_resource type="AudioStream" uid="uid://bq4wj5mtbtp7n" path="res://resources/sfx/Cartas/Game Jamina 2024 - SFX_card_discard.wav" id="3_u26rl"]
+[ext_resource type="AudioStream" uid="uid://xwfv0txqxixy" path="res://resources/sfx/Cartas/Game Jamina 2024 - SFX_card_hover.wav" id="4_q34m3"]
+[ext_resource type="AudioStream" uid="uid://c4geoyr7c6h4l" path="res://resources/sfx/Cartas/Game Jamina 2024 - SFX_card_select.wav" id="5_cyd6a"]
+[ext_resource type="AudioStream" uid="uid://70hp6abnlynr" path="res://resources/sfx/Cartas/Game Jamina 2024 - SFX_card_upgrade.wav" id="6_enquc"]
+[ext_resource type="AudioStream" uid="uid://b5lggnjvncxuw" path="res://resources/sfx/Efeitos/Game Jamina 2024 - SFX_effect_attack.wav" id="7_s3ryr"]
+[ext_resource type="AudioStream" uid="uid://v2c6hp7fbj4d" path="res://resources/sfx/Efeitos/Game Jamina 2024 - SFX_effect_buff.wav" id="8_pu8sl"]
+[ext_resource type="AudioStream" uid="uid://bivdb1207i0te" path="res://resources/sfx/Efeitos/Game Jamina 2024 - SFX_effect_debuff.wav" id="9_4x2b1"]
+[ext_resource type="AudioStream" uid="uid://c24x0pvllfggk" path="res://resources/sfx/Efeitos/Game Jamina 2024 - SFX_effect_explosion.wav" id="10_08wdu"]
+[ext_resource type="AudioStream" uid="uid://c1tjityhgmell" path="res://resources/sfx/Efeitos/Game Jamina 2024 - SFX_effect_heal.wav" id="11_rb6ih"]
+[ext_resource type="AudioStream" uid="uid://bao6ls1nommfc" path="res://resources/sfx/UI/Game Jamina 2024 - SFX_ui_boss_battle.wav" id="12_irlwl"]
+[ext_resource type="AudioStream" uid="uid://ba8dpd3kkr7p0" path="res://resources/sfx/UI/Game Jamina 2024 - SFX_ui_campfire.wav" id="13_avdop"]
+[ext_resource type="AudioStream" uid="uid://c6n6nhk67fdqa" path="res://resources/sfx/UI/Game Jamina 2024 - SFX_ui_character_selection.wav" id="14_4vtau"]
+[ext_resource type="AudioStream" uid="uid://cglcu2j138yq7" path="res://resources/sfx/UI/Game Jamina 2024 - SFX_ui_easy_battle.wav" id="15_o2atp"]
+[ext_resource type="AudioStream" uid="uid://cbq0adgxof3bp" path="res://resources/sfx/UI/Game Jamina 2024 - SFX_ui_general_buttons.wav" id="16_6ae6c"]
+[ext_resource type="AudioStream" uid="uid://gl1miwa5nb13" path="res://resources/sfx/UI/Game Jamina 2024 - SFX_ui_hard_battle.wav" id="17_syc1d"]
+[ext_resource type="AudioStream" uid="uid://bl6lmc1o8r52p" path="res://resources/sfx/UI/Game Jamina 2024 - SFX_ui_hover.wav" id="18_laqm0"]
+[ext_resource type="AudioStream" uid="uid://bxb1fb1n1wl7j" path="res://resources/sfx/UI/Game Jamina 2024 - SFX_ui_map_hover.wav" id="19_ke0ot"]
+[ext_resource type="AudioStream" uid="uid://bpq07ycjr78s4" path="res://resources/sfx/UI/Game Jamina 2024 - SFX_ui_play_button.wav" id="20_kpmcy"]
+[ext_resource type="AudioStream" uid="uid://1tu3qyp6e4a6" path="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_attack_intention.wav" id="21_em27u"]
+[ext_resource type="AudioStream" uid="uid://b1xwlt27rqmvd" path="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_boss.wav" id="22_0oo3x"]
+[ext_resource type="AudioStream" uid="uid://bcf5bv4anh5ex" path="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_mushroom.wav" id="23_h6coj"]
+[ext_resource type="AudioStream" uid="uid://bacvrnepxt8ou" path="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_player.wav" id="24_isw8f"]
+[ext_resource type="AudioStream" uid="uid://dwpgnse5fiprh" path="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_skeleton.wav" id="25_1w6ta"]
+[ext_resource type="AudioStream" uid="uid://caoglosqu0ggs" path="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_skull.wav" id="26_roypw"]
+[ext_resource type="AudioStream" uid="uid://b55jw8s0ul3yf" path="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_slime.wav" id="27_ckt7m"]
+[ext_resource type="AudioStream" uid="uid://dslthpm7c0i20" path="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_tree.wav" id="28_cydok"]
+[ext_resource type="AudioStream" uid="uid://bn2fye8kkyb76" path="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_zombie.wav" id="29_hesht"]
+
+[node name="SoundController" type="Node"]
+script = ExtResource("1_xbq3f")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Buy" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_bpgup")
+
+[node name="Discard" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_u26rl")
+
+[node name="Hover" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_q34m3")
+
+[node name="Select" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_cyd6a")
+
+[node name="Upgrade" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_enquc")
+
+[node name="Attack" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_s3ryr")
+
+[node name="Buff" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("8_pu8sl")
+
+[node name="Debuff" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("9_4x2b1")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("10_08wdu")
+
+[node name="Heal" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("11_rb6ih")
+
+[node name="UIBossBattle" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("12_irlwl")
+
+[node name="UICampfire" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_avdop")
+
+[node name="UICharacterSelection" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("14_4vtau")
+
+[node name="EasyBattle" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("15_o2atp")
+
+[node name="GeneralButtons" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("16_6ae6c")
+
+[node name="HardBattle" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("17_syc1d")
+
+[node name="UIHover" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("18_laqm0")
+
+[node name="UIMapHover" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("19_ke0ot")
+
+[node name="UIPlay" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("20_kpmcy")
+
+[node name="Intent" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("21_em27u")
+
+[node name="DMGNecro" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("22_0oo3x")
+
+[node name="DMGMushroom" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("23_h6coj")
+
+[node name="DMGPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("24_isw8f")
+
+[node name="DMGSkeleton" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("25_1w6ta")
+
+[node name="DMGSkull" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("26_roypw")
+
+[node name="DMGSlime" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("27_ckt7m")
+
+[node name="DMGRoot" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("28_cydok")
+
+[node name="DMGZombie" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("29_hesht")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Menu" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("2_1m0qb")
+
+[node name="Game" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("3_njoia")

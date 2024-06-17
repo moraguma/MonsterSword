@@ -7,15 +7,20 @@ const SELECT_OFFSET = Vector2(0, -32)
 const BASE_OFFSET = Vector2(0, 0)
 
 
+var upgrade_card = null
 var hovered = false
 var selected = false
 
 
-@onready var battle: Battle = get_parent().get_parent()
+@onready var battle = get_parent().get_parent()
 
 
 func set_tooltip(text):
 	$Button.tooltip_text = text
+
+
+func update_battle_ref():
+	battle = get_parent().get_parent()
 
 
 func play(entity: Entity):
@@ -27,6 +32,7 @@ func _process(delta):
 
 
 func mouse_entered():
+	SoundController.play_sfx("Hover")
 	hovered = true
 
 
@@ -35,6 +41,7 @@ func mouse_exited():
 
 
 func pressed():
+	SoundController.play_sfx("Select")
 	if not selected:
 		if battle.select_card(self):
 			selected = true

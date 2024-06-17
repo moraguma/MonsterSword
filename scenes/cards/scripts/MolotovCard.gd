@@ -5,6 +5,7 @@ const ENTITY = preload("res://scenes/entities/Molotov.tscn")
 
 
 func _ready():
+	upgrade_card = preload("res://scenes/cards/MolotovUpCard.tscn")
 	set_tooltip("Heals the selected entity for 5 HP and spawns a 5HP Explode 5 skull on their team")
 
 

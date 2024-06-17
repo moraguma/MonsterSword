@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dslthpm7c0i20"
+path="res://.godot/imported/Game Jamina 2024 - SFX_entity_damage_tree.wav-36dd79ac4dd57c670f2510dc4e0ceb4b.sample"
+
+[deps]
+
+source_file="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_tree.wav"
+dest_files=["res://.godot/imported/Game Jamina 2024 - SFX_entity_damage_tree.wav-36dd79ac4dd57c670f2510dc4e0ceb4b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

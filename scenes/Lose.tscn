@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmnqkya8m7mk5"]
+
+[ext_resource type="Texture2D" uid="uid://c46egk11jkoiv" path="res://resources/sprites/bg/game_over.png" id="1_b77vo"]
+[ext_resource type="Script" path="res://scenes/scripts/Win.gd" id="2_34gf1"]
+
+[node name="Menu" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_b77vo")
+centered = false
+script = ExtResource("2_34gf1")

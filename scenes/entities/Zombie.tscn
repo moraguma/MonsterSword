@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b15u8ysuyp7p0"]
+
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_5uxkx"]
+[ext_resource type="Texture2D" uid="uid://dn21pchpcp7rp" path="res://resources/sprites/enemies/zombie.png" id="2_6kxdi"]
+[ext_resource type="Texture2D" uid="uid://7xh320eqqkg4" path="res://resources/sprites/icons/zombie.png" id="3_ht70x"]
+[ext_resource type="Script" path="res://scenes/entities/scripts/Staff.gd" id="3_vwg33"]
+
+[node name="Entity" instance=ExtResource("1_5uxkx")]
+texture = ExtResource("2_6kxdi")
+script = ExtResource("3_vwg33")
+val = 1
+life = 6
+max_life = 6
+attack = 1
+icon = ExtResource("3_ht70x")
+damage_sound = "DMGZombie"
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

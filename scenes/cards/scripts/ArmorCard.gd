@@ -5,6 +5,7 @@ const ARMOR = preload("res://scenes/entities/Armor.tscn")
 
 
 func _ready():
+	upgrade_card = preload("res://scenes/cards/ArmorUpCard.tscn")
 	set_tooltip("Deals 5 damage to the selected entity and spawns a 5HP protective armor on their team")
 
 

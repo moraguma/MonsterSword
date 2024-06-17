@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://73gootxrpec2"]
+
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_1mr21"]
+[ext_resource type="Texture2D" uid="uid://ck4sg8cojoknq" path="res://resources/sprites/enemies/skull.png" id="2_0cf63"]
+
+[node name="Entity" instance=ExtResource("1_1mr21")]
+texture = ExtResource("2_0cf63")
+life = 3
+max_life = 3
+attack = 5
+damage_sound = "DMGSkull"
+
+[node name="Button" parent="." index="2"]
+offset_left = -38.5
+offset_top = -75.5
+offset_right = 3.5
+offset_bottom = -3.5
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

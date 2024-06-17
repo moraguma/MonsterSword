@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://gl1miwa5nb13"
+path="res://.godot/imported/Game Jamina 2024 - SFX_ui_hard_battle.wav-d9d02c5446d912244c9a3deba973abe4.sample"
+
+[deps]
+
+source_file="res://resources/sfx/UI/Game Jamina 2024 - SFX_ui_hard_battle.wav"
+dest_files=["res://.godot/imported/Game Jamina 2024 - SFX_ui_hard_battle.wav-d9d02c5446d912244c9a3deba973abe4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

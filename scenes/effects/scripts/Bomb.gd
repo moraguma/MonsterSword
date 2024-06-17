@@ -16,6 +16,7 @@ func attach(new_entity: Entity):
 
 
 func die():
+	SoundController.play_sfx("Explosion")
 	var allies = entity.battle.get_allies(entity)
 	for ally in allies:
 		if ally != self:

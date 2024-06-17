@@ -31,6 +31,7 @@ func process_intent():
 ## Called in the attached entity's turn. Returns true if an action was performed
 ## and false otherwise
 func turn():
+	SoundController.play_sfx("Heal")
 	entity.animate()
 	await entity.battle.try_to_call_on_entity(target, "heal", [value])
 	

@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bggxbvyro46j" path="res://resources/sprites/icons/player.png" id="2_vs4ly"]
 
 [node name="Entity" instance=ExtResource("1_wxsi7")]
+life = 30
+max_life = 30
 icon = ExtResource("2_vs4ly")
+damage_sound = "DMGPlayer"
 
 [connection signal="pressed" from="Button" to="." method="pressed"]

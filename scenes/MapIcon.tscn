@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://buuplmjuu1e57"]
+
+[ext_resource type="Texture2D" uid="uid://d1yervq3e6mc2" path="res://resources/sprites/ui/battle.png" id="1_1scvx"]
+[ext_resource type="Script" path="res://scenes/scripts/MapIcon.gd" id="2_e34lj"]
+[ext_resource type="Texture2D" uid="uid://b6s3m5pkn3ahk" path="res://resources/sprites/ui/x.png" id="3_l4oqv"]
+[ext_resource type="Texture2D" uid="uid://mumdlg0qe8ru" path="res://resources/sprites/ui/arrow.png" id="4_ffirm"]
+[ext_resource type="Texture2D" uid="uid://cfjh6dl10fym1" path="res://resources/sprites/ui/marker.png" id="4_vrjwr"]
+
+[node name="MapIcon" type="TextureButton"]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+texture_normal = ExtResource("1_1scvx")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_e34lj")
+
+[node name="X" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_l4oqv")
+centered = false
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, -15)
+texture = ExtResource("4_ffirm")
+
+[node name="Marker" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_vrjwr")
+centered = false

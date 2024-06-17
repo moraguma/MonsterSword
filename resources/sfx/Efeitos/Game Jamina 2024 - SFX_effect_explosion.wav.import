@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c24x0pvllfggk"
+path="res://.godot/imported/Game Jamina 2024 - SFX_effect_explosion.wav-5c34412c7186a038e446a43f3087809d.sample"
+
+[deps]
+
+source_file="res://resources/sfx/Efeitos/Game Jamina 2024 - SFX_effect_explosion.wav"
+dest_files=["res://.godot/imported/Game Jamina 2024 - SFX_effect_explosion.wav-5c34412c7186a038e446a43f3087809d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

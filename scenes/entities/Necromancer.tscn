@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjqkjiscf858s"]
+
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_mn1my"]
+[ext_resource type="Texture2D" uid="uid://d4ksl7jqoyytp" path="res://resources/sprites/enemies/Necro.png" id="2_kfvc2"]
+[ext_resource type="Script" path="res://scenes/entities/scripts/Necromancer.gd" id="3_7nyb6"]
+[ext_resource type="Texture2D" uid="uid://7bdfnvdgnwu8" path="res://resources/sprites/icons/necro.png" id="4_h7lmc"]
+
+[node name="Entity" instance=ExtResource("1_mn1my")]
+texture = ExtResource("2_kfvc2")
+script = ExtResource("3_7nyb6")
+life = 30
+max_life = 30
+icon = ExtResource("4_h7lmc")
+damage_sound = "DMGNecro"
+
+[node name="Button" parent="." index="2"]
+offset_left = -63.5
+offset_top = -76.5
+offset_right = 0.5
+offset_bottom = 1.5
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

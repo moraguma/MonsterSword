@@ -23,6 +23,9 @@ var effects: Array[Effect]
 
 @export var icon: Texture
 
+@export var damage_sound = ""
+@export var spawn_sound = ""
+
 var team: TEAM
 var attack_aim: Entity
 var selected = false
@@ -46,6 +49,9 @@ var intents: Array[Intent] = []
 
 
 func _ready():
+	if spawn_sound != "":
+		SoundController.play_sfx(spawn_sound)
+	
 	material = material.duplicate()
 	intent_holder.position[1] = -texture.get_height() / 2
 	stats_holder.position[1] = texture.get_height() / 2
@@ -89,6 +95,7 @@ func process_intent():
 	battle.space_elements(intents, len(intents), len(intents), INTENT_MAX_SPACING)
 	
 	if intent_loaded:
+		SoundController.play_sfx("Intent")
 		animate_up()
 	return intent_loaded
 
@@ -115,6 +122,10 @@ func turn():
 
 
 func get_attacked(entity: Entity, damage: int):
+	SoundController.play_sfx("Attack")
+	if damage_sound != "":
+		SoundController.play_sfx(damage_sound)
+	
 	life -= damage
 	update_values()
 	

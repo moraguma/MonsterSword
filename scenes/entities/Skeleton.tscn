@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://iakp1fwdgq0e"]
+
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_0sacx"]
+[ext_resource type="Texture2D" uid="uid://q8hxvsuxy66q" path="res://resources/sprites/enemies/skeleton.png" id="2_c28rx"]
+[ext_resource type="Script" path="res://scenes/entities/scripts/Dagger.gd" id="3_4mtlo"]
+[ext_resource type="Texture2D" uid="uid://c88va6iouxdc5" path="res://resources/sprites/icons/skeleton.png" id="4_7faqq"]
+
+[node name="Entity" instance=ExtResource("1_0sacx")]
+texture = ExtResource("2_c28rx")
+script = ExtResource("3_4mtlo")
+val = 1
+life = 6
+max_life = 6
+icon = ExtResource("4_7faqq")
+damage_sound = "DMGSkeleton"
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

@@ -12,4 +12,10 @@ life = 5
 max_life = 5
 icon = ExtResource("4_mpu8a")
 
+[node name="Button" parent="." index="2"]
+offset_left = -51.0
+offset_top = -82.0
+offset_right = -6.0
+offset_bottom = 6.0
+
 [connection signal="pressed" from="Button" to="." method="pressed"]

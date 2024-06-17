@@ -3,6 +3,7 @@ class_name Battle
 
 
 signal played
+signal finished(won: bool)
 
 
 const PLAYER_SCENE = preload("res://scenes/entities/Player.tscn")
@@ -15,11 +16,12 @@ const LERP_WEIGHT = 0.1
 
 const TOTAL_ENTITY_SPACING = 160
 const TOTAL_CARD_SPACING = 300
+const MAX_TURNS_TO_END = 15
 
 var selected_cards: Array[Card] = []
 var selected_entity: Entity = null
 
-var deck: Array[Card] = []
+var deck = []
 var hand: Array[Card] = []
 var allies: Array[Entity] = []
 var enemies: Array[Entity] = []
@@ -47,6 +49,8 @@ var can_discard = false
 @onready var select_card_error: RichTextLabel = $Play/SelectCard
 @onready var select_entity_error: RichTextLabel = $Play/SelectEntity
 
+var player_life
+
 
 func fisher_yates_shuffle(l):
 	var n = len(l)
@@ -58,28 +62,31 @@ func fisher_yates_shuffle(l):
 		l[i] = aux
 
 
-func initialize(battle_enemies: Array, deck: Array[Card]):
-	self.deck = deck
+func initialize(battle_enemies: Array, deck, player_life: int=30):
+	self.player_life = player_life
+	self.deck = deck.duplicate()
 	for enemy in battle_enemies:
-		add_enemy(enemy, enemies.size())
+		add_enemy(enemy.instantiate(), enemies.size())
 
 
-func _ready():
-	var test_deck_cards = [preload("res://scenes/cards/SwordUpCard.tscn"), preload("res://scenes/cards/StaffUpCard.tscn"), preload("res://scenes/cards/ArmorUpCard.tscn"), preload("res://scenes/cards/DaggerUpCard.tscn"), preload("res://scenes/cards/MolotovUpCard.tscn")]
-	var test_deck_quantities = [5, 5, 5, 5, 5]
-	var test_deck: Array[Card] = []
-	for i in range(len(test_deck_cards)):
-		for j in range(test_deck_quantities[i]):
-			test_deck.append(test_deck_cards[i].instantiate())
-
-	var test_enemy = preload("res://scenes/entities/Sword.tscn")
-	var test_enemies: Array[Entity] = []
-	for i in range(2):
-		test_enemies.append(test_enemy.instantiate())
-	initialize(test_enemies, test_deck)
+func battle():
+	#var test_deck_cards = [preload("res://scenes/cards/SwordCard.tscn"), preload("res://scenes/cards/StaffCard.tscn"), preload("res://scenes/cards/ArmorCard.tscn"), preload("res://scenes/cards/DaggerCard.tscn"), preload("res://scenes/cards/MolotovCard.tscn")]
+	#var test_deck_quantities = [5, 5, 5, 5, 5]
+	#var test_deck: Array[Card] = []
+	#for i in range(len(test_deck_cards)):
+		#for j in range(test_deck_quantities[i]):
+			#test_deck.append(test_deck_cards[i].instantiate())
+#
+	#var test_enemy = preload("res://scenes/entities/Sword.tscn")
+	#var test_enemies: Array[Entity] = []
+	#for i in range(2):
+		#test_enemies.append(test_enemy.instantiate())
+	#initialize(test_enemies, test_deck)
 	
 	player = PLAYER_SCENE.instantiate()
 	add_ally(player, 0)
+	player.life = player_life
+	player.update_values()
 	fisher_yates_shuffle(deck)
 	
 	for i in range(MAX_CARDS):
@@ -91,7 +98,8 @@ func _ready():
 		await process_intents()
 		
 		can_interact = true
-		await played
+		if len(hand) > 0:
+			await played
 		await sleep()
 		
 		for entity in turn_order:
@@ -100,10 +108,14 @@ func _ready():
 				entity.clear_intents()
 				await sleep()
 	
+	for card in card_container.get_children():
+		if card.selected:
+			card.pressed()
+		card_container.remove_child(card)
+		
 	if not player in allies:
-		print("GAME OVER")
-	else:
-		print("VICTORY")
+		return [false, 0]
+	return [true, player.life] # False if lost, true otherwise. Also player life
 
 
 func process_intents():
@@ -149,6 +161,8 @@ func space_elements(elements: Array, aim_visual_counter: float, visual_counter: 
 #region Element management
 func pull_from_deck():
 	if len(hand) < MAX_CARDS and len(deck) > 0:
+		SoundController.play_sfx("Buy")
+		
 		var card = deck.pop_back()
 		if card != null:
 			add_card(card)
@@ -157,13 +171,15 @@ func pull_from_deck():
 func add_card(card: Card):
 	hand.append(card)
 	card_container.add_child(card)
+	card.update_battle_ref()
 	
 	aim_card_visual_count += 1
 
 
 func discard_card(card: Card):
+	SoundController.play_sfx("")
 	hand.erase(card)
-	card.queue_free() # TODO: Add proper animation
+	card_container.remove_child(card)
 	
 	aim_card_visual_count -= 1
 
@@ -229,6 +245,8 @@ func desselect_card(card: Card):
 func select_entity(entity: Entity):
 	if not can_interact:
 		return false
+	
+	SoundController.play_sfx("UICharacterSelection")
 	
 	if selected_entity != null:
 		selected_entity.pressed()

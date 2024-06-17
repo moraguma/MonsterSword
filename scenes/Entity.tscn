@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1bqk7vxega37"]
 
-[ext_resource type="Script" path="res://scenes/scripts/Entity.gd" id="1_3li8x"]
+[ext_resource type="Script" path="res://scenes/entities/scripts/Entity.gd" id="1_3li8x"]
 [ext_resource type="Texture2D" uid="uid://cqcipj58oriw1" path="res://resources/sprites/enemies/player11.png" id="2_hh0u3"]
 [ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="3_d1ro6"]
 

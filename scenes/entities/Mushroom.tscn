@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bur6cs7kxdtbe"]
+
+[ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_6jedb"]
+[ext_resource type="Texture2D" uid="uid://bx7oorrw3gka6" path="res://resources/sprites/enemies/mushroom.png" id="2_cjjht"]
+[ext_resource type="Script" path="res://scenes/entities/scripts/Mushroom.gd" id="3_t725c"]
+[ext_resource type="Texture2D" uid="uid://dfekb2wjuktok" path="res://resources/sprites/icons/mushroom.png" id="4_i6nja"]
+
+[node name="Entity" instance=ExtResource("1_6jedb")]
+texture = ExtResource("2_cjjht")
+script = ExtResource("3_t725c")
+attack = 1
+icon = ExtResource("4_i6nja")
+damage_sound = "DMGMushroom"
+
+[node name="Button" parent="." index="2"]
+offset_left = -63.5
+offset_top = -76.5
+offset_right = 0.5
+offset_bottom = 1.5
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

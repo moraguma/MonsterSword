@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cqcipj58oriw1" path="res://resources/sprites/enemies/player11.png" id="2_f8e5w"]
 [ext_resource type="Script" path="res://scenes/entities/scripts/Entity.gd" id="3_4mhra"]
 [ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="3_mnmec"]
-[ext_resource type="Texture2D" uid="uid://quxybynnyglp" path="res://icon.svg" id="4_hk3c5"]
 [ext_resource type="Script" path="res://scenes/scripts/XSort.gd" id="4_l21fh"]
+[ext_resource type="Texture2D" uid="uid://mumdlg0qe8ru" path="res://resources/sprites/ui/arrow.png" id="6_vi3t3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bpn6w"]
 shader = ExtResource("1_4avyw")
@@ -84,7 +84,6 @@ flat = true
 [node name="Indicator" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, -64)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_hk3c5")
+texture = ExtResource("6_vi3t3")
 
 [connection signal="pressed" from="Button" to="." method="pressed"]

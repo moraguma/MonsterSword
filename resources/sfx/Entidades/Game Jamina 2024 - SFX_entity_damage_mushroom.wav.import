@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcf5bv4anh5ex"
+path="res://.godot/imported/Game Jamina 2024 - SFX_entity_damage_mushroom.wav-3711994cbf46e4437bda53b60c2f89a8.sample"
+
+[deps]
+
+source_file="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_mushroom.wav"
+dest_files=["res://.godot/imported/Game Jamina 2024 - SFX_entity_damage_mushroom.wav-3711994cbf46e4437bda53b60c2f89a8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

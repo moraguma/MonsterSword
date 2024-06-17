@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bn2fye8kkyb76"
+path="res://.godot/imported/Game Jamina 2024 - SFX_entity_damage_zombie.wav-4bbb9fcbf8c162f3573e03bf03fb7115.sample"
+
+[deps]
+
+source_file="res://resources/sfx/Entidades/Game Jamina 2024 - SFX_entity_damage_zombie.wav"
+dest_files=["res://.godot/imported/Game Jamina 2024 - SFX_entity_damage_zombie.wav-4bbb9fcbf8c162f3573e03bf03fb7115.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

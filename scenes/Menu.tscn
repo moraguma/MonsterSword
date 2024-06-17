@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqulubfmpthn4"]
+
+[ext_resource type="Texture2D" uid="uid://c7va7yc6wmyi" path="res://resources/sprites/bg/background.png" id="1_43fa3"]
+[ext_resource type="Script" path="res://scenes/scripts/Menu.gd" id="2_l7b51"]
+[ext_resource type="Texture2D" uid="uid://dvacq4ne6bnln" path="res://resources/sprites/ui/titulo.png" id="2_sgghh"]
+[ext_resource type="Theme" uid="uid://bmrsgb2jab1xy" path="res://resources/themes/GameTheme.tres" id="3_g8ehp"]
+[ext_resource type="Script" path="res://addons/jam_essentials/scenes/scripts/TransitionButton.gd" id="4_mhwwm"]
+[ext_resource type="Script" path="res://addons/jam_essentials/scenes/scripts/CameraFocusButton.gd" id="6_h08pt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vvxto"]
+
+[node name="Menu" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_43fa3")
+centered = false
+script = ExtResource("2_l7b51")
+
+[node name="Title" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(240, 56)
+texture = ExtResource("2_sgghh")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 144.0
+offset_top = 120.0
+offset_right = 336.0
+offset_bottom = 152.0
+theme = ExtResource("3_g8ehp")
+theme_override_font_sizes/font_size = 16
+text = "PLAY"
+flat = true
+script = ExtResource("4_mhwwm")
+transition_path = "res://scenes/Game.tscn"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 144.0
+offset_top = 160.0
+offset_right = 336.0
+offset_bottom = 192.0
+theme = ExtResource("3_g8ehp")
+theme_override_font_sizes/font_size = 16
+text = "CREDITS"
+flat = true
+script = ExtResource("6_h08pt")
+aim_pos = Vector2(720, 135)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(720, 136)
+texture = ExtResource("1_43fa3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 560.0
+offset_top = 80.0
+offset_right = 880.0
+offset_bottom = 208.0
+theme = ExtResource("3_g8ehp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vvxto")
+bbcode_enabled = true
+text = "[center]
+Art direction - [wave]@luigi_troxao[/wave]
+
+Audio direction - [wave]@chagasgstv[/wave]
+
+Code and game design - [wave]@moraguma[/wave]"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 608.0
+offset_top = 184.0
+offset_right = 800.0
+offset_bottom = 216.0
+theme = ExtResource("3_g8ehp")
+theme_override_font_sizes/font_size = 16
+text = "BACK"
+flat = true
+script = ExtResource("6_h08pt")
+aim_pos = Vector2(240, 135)
