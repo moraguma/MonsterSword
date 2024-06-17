@@ -123,7 +123,7 @@ func turn():
 	await attack_aim.get_attacked(self, attack)
 
 
-func get_attacked(entity: Entity, damage: int):
+func get_attacked(entity, damage):
 	SoundController.play_sfx("Attack")
 	if damage_sound != "":
 		SoundController.play_sfx(damage_sound)

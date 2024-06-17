@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_s8ry3"]
 [ext_resource type="Texture2D" uid="uid://dts4iwemgbv8p" path="res://resources/sprites/enemies/staffup.png" id="2_jcc4i"]
 [ext_resource type="Script" path="res://scenes/entities/scripts/Staff.gd" id="3_ev1ms"]
-[ext_resource type="Texture2D" uid="uid://ks7cgeual28t" path="res://resources/sprites/icons/heal.png" id="4_7bw77"]
+[ext_resource type="Texture2D" uid="uid://dsjdsya137ir6" path="res://resources/sprites/icons/healup.png" id="4_tnx3k"]
 
 [node name="Entity" instance=ExtResource("1_s8ry3")]
 texture = ExtResource("2_jcc4i")
@@ -11,4 +11,4 @@ script = ExtResource("3_ev1ms")
 val = 2
 life = 4
 max_life = 4
-icon = ExtResource("4_7bw77")
+icon = ExtResource("4_tnx3k")

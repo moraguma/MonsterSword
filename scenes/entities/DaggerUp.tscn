@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_ttomr"]
 [ext_resource type="Texture2D" uid="uid://dpv5ddjnmyus2" path="res://resources/sprites/enemies/daggerup.png" id="2_ihobk"]
 [ext_resource type="Script" path="res://scenes/entities/scripts/Dagger.gd" id="3_8s8fa"]
-[ext_resource type="Texture2D" uid="uid://c35w84wwscaob" path="res://resources/sprites/icons/blademaster.png" id="4_cp0ba"]
+[ext_resource type="Texture2D" uid="uid://b1t5glbot2scl" path="res://resources/sprites/icons/blademasterup.png" id="4_nd3h8"]
 
 [node name="Entity" instance=ExtResource("1_ttomr")]
 texture = ExtResource("2_ihobk")
@@ -11,6 +11,4 @@ script = ExtResource("3_8s8fa")
 val = 2
 life = 3
 max_life = 3
-icon = ExtResource("4_cp0ba")
-
-[connection signal="pressed" from="Button" to="." method="pressed"]
+icon = ExtResource("4_nd3h8")

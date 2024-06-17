@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_6jtfo"]
 [ext_resource type="Texture2D" uid="uid://but1hx828a183" path="res://resources/sprites/enemies/bombup.png" id="2_p8fuh"]
 [ext_resource type="Script" path="res://scenes/entities/scripts/Molotov.gd" id="3_pknvm"]
-[ext_resource type="Texture2D" uid="uid://kjxss0ndo6r" path="res://resources/sprites/icons/bomb.png" id="4_nam0y"]
+[ext_resource type="Texture2D" uid="uid://b4se88d3t60d8" path="res://resources/sprites/icons/bombup.png" id="4_h7kuv"]
 
 [node name="Entity" instance=ExtResource("1_6jtfo")]
 texture = ExtResource("2_p8fuh")
@@ -11,4 +11,4 @@ script = ExtResource("3_pknvm")
 val = 10
 life = 3
 max_life = 3
-icon = ExtResource("4_nam0y")
+icon = ExtResource("4_h7kuv")

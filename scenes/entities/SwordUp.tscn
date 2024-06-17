@@ -2,13 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bcw5r1it5fj7o" path="res://scenes/entities/EntityBase.tscn" id="1_usbrh"]
 [ext_resource type="Texture2D" uid="uid://bancw6odiwol5" path="res://resources/sprites/enemies/swordup.png" id="2_wbwy0"]
-[ext_resource type="Texture2D" uid="uid://ck570d75svl08" path="res://resources/sprites/icons/sword.png" id="3_l570x"]
+[ext_resource type="Texture2D" uid="uid://bd64k41ydte4d" path="res://resources/sprites/icons/swordup.png" id="3_nlpdq"]
 
 [node name="Entity" instance=ExtResource("1_usbrh")]
 texture = ExtResource("2_wbwy0")
 life = 3
 max_life = 3
 attack = 2
-icon = ExtResource("3_l570x")
-
-[connection signal="pressed" from="Button" to="." method="pressed"]
+icon = ExtResource("3_nlpdq")

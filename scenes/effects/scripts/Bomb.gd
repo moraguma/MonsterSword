@@ -20,4 +20,4 @@ func die():
 	var allies = entity.battle.get_allies(entity)
 	for ally in allies:
 		if ally != self:
-			await ally.get_attacked(entity, value)
+			await entity.battle.try_to_call_on_entity(ally, "get_attacked", [self, value])
