@@ -15,11 +15,11 @@ texture = ExtResource("4_b4u3m")
 centered = false
 
 [node name="Allies" type="Node2D" parent="."]
-position = Vector2(120, 80)
+position = Vector2(136, 80)
 script = ExtResource("2_olqeh")
 
 [node name="Enemies" type="Node2D" parent="."]
-position = Vector2(360, 80)
+position = Vector2(344, 80)
 script = ExtResource("2_olqeh")
 
 [node name="Cards" type="Node2D" parent="."]

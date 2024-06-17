@@ -31,7 +31,7 @@ const BATTLES = {
 		],
 		3: [
 			[ROOT, SKULL],
-			[SKELETON, SKELETON, SKELETON],
+			[SKELETON, SKELETON, ZOMBIE],
 			[MUSHROOM, ZOMBIE, ZOMBIE]
 		]
 }
@@ -45,7 +45,9 @@ const HARD_BATTLES = {
 		2: [
 			[ROOT, ZOMBIE, SLIME]
 		],
-		3: [ROOT, SKELETON, SKELETON]
+		3: [
+			[ROOT, SKELETON, SKELETON]
+		]
 }
 
 const BASE_CARDS = [
@@ -108,6 +110,11 @@ func _ready():
 	for icon in progression_graph:
 		icon.pressed.connect(clicked_icon.bind(icon))
 	$"Map/12".pressed.connect(clicked_icon.bind($"Map/12"))
+
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("menu"):
+		SceneManager.goto_scene("res://scenes/Menu.tscn")
 
 
 func build_map():

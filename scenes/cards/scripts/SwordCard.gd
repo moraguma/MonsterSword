@@ -6,7 +6,7 @@ const TEST_ENEMY = preload("res://scenes/entities/Sword.tscn")
 
 func _ready():
 	upgrade_card = preload("res://scenes/cards/SwordUpCard.tscn")
-	set_tooltip("Deals 2 damage to the selected entity and spawns a 1HP 1ATK sword on their team")
+	set_tooltip("Deals 2 damage to the selected entity and spawns a 2HP 1ATK sword on their team")
 
 
 func play(entity: Entity):

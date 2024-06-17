@@ -6,9 +6,7 @@
 
 [node name="Entity" instance=ExtResource("1_nnknk")]
 texture = ExtResource("2_ln26x")
-life = 1
-max_life = 1
+life = 2
+max_life = 2
 attack = 1
 icon = ExtResource("3_h1fp7")
-
-[connection signal="pressed" from="Button" to="." method="pressed"]

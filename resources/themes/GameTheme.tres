@@ -11,6 +11,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvne8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oixy"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6et1"]
 bg_color = Color(0, 0, 0, 1)
@@ -18,7 +19,7 @@ bg_color = Color(0, 0, 0, 1)
 [resource]
 default_font = ExtResource("1_gv4b5")
 default_font_size = 8
-Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.9001, 0.553879, 0.146704, 1)
 Button/styles/disabled = SubResource("StyleBoxEmpty_vphti")
 Button/styles/focus = SubResource("StyleBoxEmpty_kocxn")
 Button/styles/hover = SubResource("StyleBoxEmpty_1pku6")

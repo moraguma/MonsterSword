@@ -90,6 +90,7 @@ stream = ExtResource("18_laqm0")
 
 [node name="UIMapHover" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("19_ke0ot")
+volume_db = -10.0
 
 [node name="UIPlay" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("20_kpmcy")

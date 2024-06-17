@@ -8,6 +8,8 @@
 [node name="Entity" instance=ExtResource("1_6jedb")]
 texture = ExtResource("2_cjjht")
 script = ExtResource("3_t725c")
+life = 6
+max_life = 6
 attack = 1
 icon = ExtResource("4_i6nja")
 damage_sound = "DMGMushroom"
@@ -17,5 +19,3 @@ offset_left = -63.5
 offset_top = -76.5
 offset_right = 0.5
 offset_bottom = 1.5
-
-[connection signal="pressed" from="Button" to="." method="pressed"]

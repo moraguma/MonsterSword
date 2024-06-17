@@ -7,14 +7,14 @@ signal finished(won: bool)
 
 
 const PLAYER_SCENE = preload("res://scenes/entities/Player.tscn")
-const SMALL_SLEEP_TIME = 0.75
-const DEFAULT_SLEEP_TIME = 1.5
+const SMALL_SLEEP_TIME = 0.6
+const DEFAULT_SLEEP_TIME = 1.2
 
 
 const MAX_CARDS = 5
 const LERP_WEIGHT = 0.1
 
-const TOTAL_ENTITY_SPACING = 160
+const TOTAL_ENTITY_SPACING = 210
 const TOTAL_CARD_SPACING = 300
 const MAX_TURNS_TO_END = 15
 

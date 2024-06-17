@@ -14,9 +14,7 @@ icon = ExtResource("4_h7lmc")
 damage_sound = "DMGNecro"
 
 [node name="Button" parent="." index="2"]
-offset_left = -63.5
-offset_top = -76.5
-offset_right = 0.5
-offset_bottom = 1.5
-
-[connection signal="pressed" from="Button" to="." method="pressed"]
+offset_left = -59.0
+offset_top = -76.0
+offset_right = -17.0
+offset_bottom = 0.0

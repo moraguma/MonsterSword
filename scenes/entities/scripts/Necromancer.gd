@@ -5,7 +5,7 @@ extends Entity
 
 func _ready():
 	var effect = preload("res://scenes/effects/Blademaster.tscn").instantiate()
-	effect.initialize(2)
+	effect.value = 1
 	add_effect(effect)
 	super()
 	

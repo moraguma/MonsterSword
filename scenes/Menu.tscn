@@ -57,11 +57,11 @@ theme = ExtResource("3_g8ehp")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vvxto")
 bbcode_enabled = true
 text = "[center]
-Art direction - [wave]@luigi_troxao[/wave]
+Art direction - [wave][color=#e68d25]@luigi_troxao[/color][/wave]
 
-Audio direction - [wave]@chagasgstv[/wave]
+Audio direction - [wave][color=#e68d25]@chagasgstv[/color][/wave]
 
-Code and game design - [wave]@moraguma[/wave]"
+Code and game design - [wave][color=#e68d25]@moraguma[/color][/wave]"
 
 [node name="Button2" type="Button" parent="."]
 offset_left = 608.0
