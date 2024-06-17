@@ -25,13 +25,13 @@ const BATTLES = {
 			[SKELETON, SLIME]
 		],
 		2: [
-			[ROOT, SLIME, SLIME],
-			[MUSHROOM, ZOMBIE],
+			[ROOT, SLIME, ZOMBIE],
+			[MUSHROOM, SLIME],
 			[SKULL, ZOMBIE]
 		],
 		3: [
-			[ROOT, SKULL],
-			[SKELETON, SKELETON, ZOMBIE],
+			[ROOT, SKULL, SKULL],
+			[SKELETON, SKELETON, SLIME],
 			[MUSHROOM, ZOMBIE, ZOMBIE]
 		]
 }
@@ -40,10 +40,11 @@ const HARD_BATTLES = {
 			[SLIME],
 		],
 		1: [
-			[MUSHROOM]
+			[MUSHROOM],
+			[SKULL, SKULL]
 		],
 		2: [
-			[ROOT, ZOMBIE, SLIME]
+			[ROOT, ZOMBIE, ZOMBIE],
 		],
 		3: [
 			[ROOT, SKELETON, SKELETON]
