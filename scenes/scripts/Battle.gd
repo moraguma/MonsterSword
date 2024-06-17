@@ -9,6 +9,9 @@ signal finished(won: bool)
 const PLAYER_SCENE = preload("res://scenes/entities/Player.tscn")
 const SMALL_SLEEP_TIME = 0.6
 const DEFAULT_SLEEP_TIME = 1.2
+const NO_CARD_TIME_MULTIPLIER = 1.8
+const SLEEP_MODIFIER = 1.07
+const MAX_SLEEP_MODIFIER = 2.0
 
 
 const MAX_CARDS = 5
@@ -28,6 +31,7 @@ var enemies: Array[Entity] = []
 var turn_order: Array[Entity] = []
 
 var player: Entity
+var no_cards = false
 
 var ally_visual_count = 0
 var aim_ally_visual_count = 0
@@ -35,6 +39,8 @@ var enemy_visual_count = 0
 var aim_enemy_visual_count = 0
 var card_visual_count = 0
 var aim_card_visual_count = 0
+
+var time_modifier = 1.0
 
 @onready var ally_container: XSort = $Allies
 @onready var enemy_container: XSort = $Enemies
@@ -96,17 +102,22 @@ func battle():
 	update_discard()
 	while len(enemies) != 0 and player in allies:
 		await process_intents()
+		time_modifier = 1.0
 		
 		can_interact = true
 		if len(hand) > 0:
 			await played
-		await sleep()
+		else:
+			no_cards = true
+		
 		
 		for entity in turn_order:
 			if entity != null:
+				await sleep()
 				await entity.turn()
 				entity.clear_intents()
-				await sleep()
+		time_modifier = 1.0
+		await sleep()
 	
 	for card in card_container.get_children():
 		if card.selected:
@@ -337,8 +348,14 @@ func get_entity_position(entity: Entity):
 
 
 func sleep(time: float=DEFAULT_SLEEP_TIME):
-	sleep_timer.start(time)
+	if no_cards:
+		time /= NO_CARD_TIME_MULTIPLIER
+	
+	sleep_timer.start(time / time_modifier)
 	await sleep_timer.timeout
+	
+	time_modifier *= SLEEP_MODIFIER
+	time_modifier = min(time_modifier, MAX_SLEEP_MODIFIER)
 
 
 func get_attackable_adversaries(entity: Entity):
